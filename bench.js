@@ -8,6 +8,7 @@ var levdist = require('levdist');
 var natural = require('natural').LevenshteinDistance;
 var levenshtein = require('levenshtein');
 var talisman = require('talisman/metrics/distance/levenshtein');
+var oldLeven = require('./old-leven');
 var leven = require('./');
 
 function run(fn) {
@@ -30,6 +31,10 @@ function run(fn) {
 suite('leven', function () {
 	bench('leven', function () {
 		run(leven);
+	});
+
+	bench('old-leven', function () {
+		run(oldLeven);
 	});
 
 	bench('talisman', function () {
